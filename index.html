@@ -110,6 +110,22 @@
     margin-bottom: 36px;
   }
 
+  .tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .tag{
+    display: inline-block;
+    border: 1px solid var(--line);
+    background: var(--white);
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 999px;
+  }
+
   /* ---------- ЩО ОТРИМУЄШ ---------- */
   .deliverables{
     display: grid;
@@ -279,6 +295,49 @@
     outline: 2px solid var(--sage-dark);
     outline-offset: 3px;
   }
+
+  /* ---------- SCOPE ---------- */
+  .scope-intro{
+    max-width: 60ch;
+    margin-bottom: 40px;
+  }
+  .scope-grid{
+    display: grid;
+    gap: 40px;
+  }
+  @media (min-width: 700px){
+    .scope-grid{ grid-template-columns: 1fr 1fr; gap: 48px; }
+  }
+  .scope-block .eyebrow{
+    color: var(--sage-dark);
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+  .scope-block h3{ margin-bottom: 20px; }
+  .scope-block ul{
+    list-style: none;
+  }
+  .scope-block li{
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+  }
+  .scope-block li::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sage);
+  }
+  .scope-block li strong{
+    color: var(--ink);
+    font-weight: 700;
+  }
 </style>
 </head>
 <body>
@@ -287,8 +346,13 @@
   <div class="wrap">
     <div class="kicker fade">Комерційна пропозиція · сайт для KOSA Beauty Room</div>
     <h1 class="fade">Сайт, який працює на бронювання — а не просто виглядає красиво</h1>
-    <p class="lead fade">За 3 тижні отримаєте односторінковий сайт для KOSA, який переводить відвідувача у запис в WhatsApp одним натисканням — без форм, без зайвих кроків, без того, що доведеться пояснювати клієнту, що робити далі.</p>
-    <a href="#contacts" class="btn fade">Забронювати проєкт</a>
+    <p class="lead fade">За 3 тижні отримаєте односторінковий сайт для KOSA — не просто ще один канал для запису, а візуальна візитка, яка підтверджує статус салону там, де Instagram цього не показує. Стиль сайту продовжує ваш бренд (той самий шавлієвий і кремовий, що в логотипі), а кнопка запису веде у WhatsApp одним натисканням — без форм і зайвих кроків.</p>
+    <div class="tags fade">
+      <span class="tag">Лендинг (7 блоків)</span>
+      <span class="tag">Комплекс робіт: Дизайн + Верстка</span>
+      <span class="tag">Мова сайту UA / RU / HEB</span>
+      <span class="tag">Адаптив: desktop / mobile</span>
+    </div>
   </div>
 </section>
 
@@ -300,7 +364,7 @@
         <span class="num">01</span>
         <div>
           <h3>Дизайн під бренд KOSA</h3>
-          <p>Кольори й шрифт із вашого логотипу — шавлієво-зелений і кремовий, не готовий шаблон з інтернету.</p>
+          <p>Типографіка, плавний скрол, динамічні відео та зум-фото, виразні анімації прояву фото, відео й тексту. Фото- та відеоконтент надає клієнт.</p>
         </div>
       </div>
       <div class="deliverable fade">
