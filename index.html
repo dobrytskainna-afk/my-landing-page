@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сайт для KOSA Beauty Room — комерційна пропозиція</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #F6F2EA;
+    --cream-2: #EEE8DA;
+    --ink: #2B2E24;
+    --ink-soft: #5B5F4F;
+    --sage: #818C7C;
+    --sage-dark: #656F5D;
+    --line: #DCD4BE;
+    --white: #FCFAF4;
+    --radius: 3px;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    font-family: 'Manrope', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (min-width: 960px){
+    body{ font-size: 18px; }
+  }
+
+  img{ max-width: 100%; display:block; }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section{
+    padding: 64px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section:last-of-type{ border-bottom: none; }
+
+  h1, h2, h3{
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  h1{ font-size: clamp(2rem, 6vw, 3rem); }
+  h2{ font-size: clamp(1.5rem, 4vw, 2.1rem); margin-bottom: 32px; }
+  h3{ font-size: 1.15rem; margin-bottom: 8px; }
+
+  p{ color: var(--ink-soft); }
+
+  .btn{
+    display: inline-block;
+    background: var(--sage);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 16px 32px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .btn:hover{ background: var(--sage-dark); }
+
+  .btn-outline{
+    display: inline-block;
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+    font-weight: 700;
+    padding: 14px 30px;
+    border-radius: var(--radius);
+    text-decoration: none;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background: var(--cream-2);
+    padding: 88px 0 72px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .kicker{
+    color: var(--sage-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+  }
+  .hero h1{ margin-bottom: 20px; }
+  .hero p.lead{
+    font-size: 1.15rem;
+    max-width: 46ch;
+    margin-bottom: 36px;
+  }
+
+  /* ---------- ЩО ОТРИМУЄШ ---------- */
+  .deliverables{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .deliverable{
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+  }
+  .deliverable:last-child{ border-bottom: 1px solid var(--line); }
+  .deliverable .num{
+    font-weight: 800;
+    color: var(--sage);
+    font-size: 1.05rem;
+  }
+
+  @media (min-width: 700px){
+    .deliverables{ grid-template-columns: 1fr 1fr; column-gap: 40px; }
+    .deliverable:nth-child(2n+1){ border-right: none; }
+  }
+
+  /* ---------- ЕТАПИ ---------- */
+  .stage{
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 20px;
+    position: relative;
+    padding-bottom: 40px;
+  }
+  .stage:last-child{ padding-bottom: 0; }
+  .stage .dates{
+    font-weight: 700;
+    color: var(--sage-dark);
+    font-size: 0.95rem;
+    padding-top: 2px;
+  }
+  .stage-line{
+    position: relative;
+  }
+  .stage-line::before{
+    content:'';
+    position:absolute;
+    left: 90px;
+    top: 8px;
+    bottom: -32px;
+    width: 1px;
+    background: var(--line);
+  }
+  .stage:last-child .stage-line::before{ display:none; }
+
+  /* ---------- ЧОМУ Я ---------- */
+  .reasons{
+    display:grid;
+    gap: 28px;
+    margin-bottom: 48px;
+  }
+  @media (min-width: 700px){
+    .reasons{ grid-template-columns: repeat(3, 1fr); }
+  }
+  .reason .mark{
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--sage);
+    margin-bottom: 14px;
+  }
+
+  .case{
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px;
+  }
+  .case + .case{ margin-top: 16px; }
+  .case .stat{
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: var(--sage-dark);
+    display:block;
+    margin-bottom: 6px;
+  }
+
+  /* ---------- FAQ ---------- */
+  details{
+    border-top: 1px solid var(--line);
+    padding: 20px 0;
+  }
+  details:last-of-type{ border-bottom: 1px solid var(--line); }
+  summary{
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  summary::-webkit-details-marker{ display:none; }
+  summary::after{
+    content: '+';
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--sage-dark);
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+  details[open] summary::after{ content: '–'; }
+  details p{ margin-top: 12px; max-width: 60ch; }
+
+  /* ---------- CONTACTS ---------- */
+  .contacts{
+    background: var(--cream-2);
+  }
+  .contacts h2{ margin-bottom: 16px; }
+  .contacts p.lead{ font-size: 1.1rem; margin-bottom: 32px; max-width: 46ch; }
+  .contact-row{
+    display:flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 32px;
+  }
+  .contact-row .btn,
+  .contact-row .btn-outline{
+    text-align: center;
+  }
+
+  @media (min-width: 640px){
+    .contact-row{
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+  .contact-info{
+    margin-top: 40px;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+  .contact-info strong{ color: var(--ink); }
+
+  footer{
+    text-align:center;
+    padding: 28px 0;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- FADE IN ---------- */
+  .fade{
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade.visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .fade{ opacity: 1; transform: none; transition: none; }
+    html{ scroll-behavior: auto; }
+  }
+
+  :focus-visible{
+    outline: 2px solid var(--sage-dark);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker fade">Комерційна пропозиція · сайт для KOSA Beauty Room</div>
+    <h1 class="fade">Сайт, який працює на бронювання — а не просто виглядає красиво</h1>
+    <p class="lead fade">За 3 тижні отримаєте односторінковий сайт для KOSA, який переводить відвідувача у запис в WhatsApp одним натисканням — без форм, без зайвих кроків, без того, що доведеться пояснювати клієнту, що робити далі.</p>
+    <a href="#contacts" class="btn fade">Забронювати проєкт</a>
+  </div>
+</section>
+
+<section id="deliverables">
+  <div class="wrap">
+    <h2 class="fade">Що отримуєте</h2>
+    <div class="deliverables">
+      <div class="deliverable fade">
+        <span class="num">01</span>
+        <div>
+          <h3>Дизайн під бренд KOSA</h3>
+          <p>Кольори й шрифт із вашого логотипу — шавлієво-зелений і кремовий, не готовий шаблон з інтернету.</p>
+        </div>
+      </div>
+      <div class="deliverable fade">
+        <span class="num">02</span>
+        <div>
+          <h3>Чистий код без зайвого</h3>
+          <p>Сайт вантажиться за секунду навіть на слабкому мобільному інтернеті — жодних важких плагінів.</p>
+        </div>
+      </div>
+      <div class="deliverable fade">
+        <span class="num">03</span>
+        <div>
+          <h3>Адаптив під усі екрани</h3>
+          <p>Однаково зручно виглядає й на телефоні, і на планшеті, і на комп'ютері клієнта.</p>
+        </div>
+      </div>
+      <div class="deliverable fade">
+        <span class="num">04</span>
+        <div>
+          <h3>Тексти під вашу аудиторію</h3>
+          <p>Копірайт написаний під клієнтів 30-60 років із центру Ізраїлю — не загальні фрази "про красу".</p>
+        </div>
+      </div>
+      <div class="deliverable fade">
+        <span class="num">05</span>
+        <div>
+          <h3>SEO-база</h3>
+          <p>Правильні заголовки й опис сторінки, щоб вас знаходили в Google за запитом "перукарня Рішон-ле-Ціон".</p>
+        </div>
+      </div>
+      <div class="deliverable fade">
+        <span class="num">06</span>
+        <div>
+          <h3>Коротке навчання</h3>
+          <p>Покажу, як самостійно поміняти фото чи текст на сайті — без знання коду, 15 хвилин вашого часу.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <h2 class="fade">Етапи й тайминг — 3 тижні</h2>
+
+    <div class="stage-line">
+      <div class="stage fade">
+        <div class="dates">Дні 1–5</div>
+        <div>
+          <h3>Бриф і структура</h3>
+          <p>Фіксуємо послуги, аудиторію й референси. Затверджуємо структуру сторінки — скільки блоків і в якому порядку.</p>
+        </div>
+      </div>
+      <div class="stage fade">
+        <div class="dates">Дні 6–12</div>
+        <div>
+          <h3>Дизайн і верстка</h3>
+          <p>Збираю сторінку в коді на основі затвердженої структури й вашого візуального стилю.</p>
+        </div>
+      </div>
+      <div class="stage fade">
+        <div class="dates">Дні 13–18</div>
+        <div>
+          <h3>Наповнення й тексти</h3>
+          <p>Додаю ваші фото, послуги, відгуки й товари. Узгоджуємо фінальні формулювання.</p>
+        </div>
+      </div>
+      <div class="stage fade">
+        <div class="dates">Дні 19–21</div>
+        <div>
+          <h3>Тест і запуск</h3>
+          <p>Перевіряю на різних телефонах, підключаю кнопку WhatsApp, публікую сайт.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <h2 class="fade">Чому саме так</h2>
+    <div class="reasons">
+      <div class="reason fade">
+        <div class="mark"></div>
+        <h3>Спершу ринок, потім дизайн</h3>
+        <p>Перш ніж малювати перший екран, я розібрала перукарні Рішон-ле-Ціону — знаю, що працює в цій ніші, а що ні.</p>
+      </div>
+      <div class="reason fade">
+        <div class="mark"></div>
+        <h3>Структура на даних, не на здогадках</h3>
+        <p>Порядок блоків побудований на реальному портреті вашої клієнтки — вік, дохід, звички запису.</p>
+      </div>
+      <div class="reason fade">
+        <div class="mark"></div>
+        <h3>Одна дія на сторінці</h3>
+        <p>Кожен блок сайту веде до одного і того ж — запису в WhatsApp. Без відволікань і зайвих кнопок.</p>
+      </div>
+    </div>
+
+    <div class="case fade">
+      <span class="stat">2 з 9</span>
+      <p>Лише 2 з 9 перукарень-конкурентів у Рішон-ле-Ціоні мають власний сайт. У решти — тільки Instagram і профілі-агрегатори. Ваш сайт з першого дня буде рідкісним аргументом на користь KOSA.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2 class="fade">Питання, які зазвичай виникають</h2>
+
+    <details class="fade">
+      <summary>Скільки коштує сайт?</summary>
+      <p>Для цього проєкту — безкоштовно. Ми домовились про бартер: замість оплати — послуги салону в подяку за сайт.</p>
+    </details>
+
+    <details class="fade">
+      <summary>Що з доменом і хостингом?</summary>
+      <p>Домен і хостинг — окремі витрати (орієнтовно від 40₪/рік за домен), їх оплачуєте ви як власниця сайту. Допоможу підібрати й підключити.</p>
+    </details>
+
+    <details class="fade">
+      <summary>Чи зможу я сама редагувати сайт?</summary>
+      <p>Так. Після запуску покажу на короткому дзвінку, як самостійно поміняти фото, ціни чи текст — без знання коду.</p>
+    </details>
+
+    <details class="fade">
+      <summary>А якщо згодом знадобиться онлайн-запис?</summary>
+      <p>Зараз кнопка веде у WhatsApp — так само, як у більшості локальних салонів, і клієнтам це звично. Повноцінну систему бронювання можна додати пізніше окремим етапом, коли буде потреба.</p>
+    </details>
+  </div>
+</section>
+
+<section id="contacts" class="contacts">
+  <div class="wrap">
+    <h2 class="fade">Готові починати?</h2>
+    <p class="lead fade">Дедлайн — 3 тижні з моменту старту. Напишіть мені, і зафіксуємо дату першого кроку — бриф.</p>
+    <div class="contact-row fade">
+      <a href="https://wa.me/972538258994" class="btn">Написати в WhatsApp</a>
+      <a href="mailto:dobrytskainna@gmail.com" class="btn-outline">Написати на пошту</a>
+    </div>
+    <div class="contact-info fade">
+      <p><strong>Інна Добрицька</strong> — веб-дизайнерка</p>
+      <p>Проєкт: сайт для KOSA Beauty Room, Рішон-ле-Ціон</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 · Комерційна пропозиція підготовлена для KOSA Beauty Room
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.fade');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  items.forEach(item => observer.observe(item));
+</script>
+
+</body>
+</html>
